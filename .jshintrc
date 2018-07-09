@@ -1,0 +1,12 @@
+{
+    "esversion": 6,
+    "node": true,
+    "camelcase": true,
+    "newcap": true,
+    "plusplus": false,
+    "undef": true,
+    "unused": true,
+    "maxlen": 100,
+    "eqeqeq": true,
+    "singleGroups": true
+}
