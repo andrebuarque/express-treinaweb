@@ -1,0 +1,7 @@
+<h1><%= titulo %></h1>
+
+<ul>
+    <% for (let i = 0; i < cursos.length; i++) { %>
+    <li> <%= `${cursos[i].nome} - ${cursos[i].categoria}` %> </li>
+    <% } %>
+</ul>
