@@ -7,6 +7,8 @@ class Home {
     }
 
     index(req, res) {
+        console.log(req.cookies['meu-cookie']);
+        
         this.Curso.find().exec((err, cursos) => {
             res.render('index', { titulo: 'titulo', cursos })
         });

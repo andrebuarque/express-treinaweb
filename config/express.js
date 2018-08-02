@@ -1,5 +1,7 @@
 const express = require('express'),
     bodyParser = require('body-parser'),
+    cookieParser = require('cookie-parser'),
+    expressSession = require('express-session'),
     load = require('express-load');
 
 // constants
@@ -17,6 +19,8 @@ app.set('views', './app/views');
 app.use(express.static(STATIC_FILES));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(expressSession({ secret: 'meuTokenSecreto' }));
 
 // load app modules
 load('models', { cwd: 'app' })
