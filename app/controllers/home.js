@@ -1,3 +1,5 @@
+const login = require('../../config/auth').login;
+
 class Home {
     constructor(app) {
         this.Curso = app.models.curso;
@@ -14,10 +16,22 @@ class Home {
         });
     }
 
+    login(req, res) {
+        const { name, password } = req.body;
+
+        login(name, password, (result) => {
+            if (result) {
+                res.json(result);
+            } else {
+                res.status(401).json({ message: 'Erro de autenticação.' });
+            }
+        });
+    }
+
     addItem(req, res) {
         // let cursos = this.Curso;
         // cursos.push({ nome: 'aluno 4', categoria: 'categoria 4' });
-        // res.json(cursos);
+        res.json("ok");
     }
 }
 

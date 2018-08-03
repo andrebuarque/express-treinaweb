@@ -4,6 +4,8 @@ const express = require('express'),
     expressSession = require('express-session'),
     load = require('express-load');
 
+const auth = require('./auth').auth();
+
 // constants
 const PORT = 80;
 const STATIC_FILES = './public';
@@ -21,6 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(expressSession({ secret: 'meuTokenSecreto' }));
+app.use(auth.initialize());
 
 // load app modules
 load('models', { cwd: 'app' })
